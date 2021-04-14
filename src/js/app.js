@@ -1,7 +1,5 @@
-// STYLE
-import '../styles/core.scss'
 import '../styles/font-face.scss'
 // LOGIC
-import double from './core'
+import { Wizard } from './characters'
 
-double(1)
+console.log(new Wizard())
