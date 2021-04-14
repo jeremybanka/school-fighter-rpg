@@ -14,13 +14,19 @@ describe(`Wizard`, () => {
     wizard.type = `fire`
     expect(wizard.type).toEqual(`fire`)
   })
-  test(`it should add health`, () => {
+  test(`it should add health by 5`, () => {
     wizard.addHealth()
     expect(wizard.health).toEqual(25)
   })
   test(`it should remove health by 5`, () => {
     wizard.removeHealth()
     expect(wizard.health).toEqual(15)
+  })
+  test(`it should kill the character when the 
+  health is at or less than 0`, () => {
+    wizard.health = 5
+    wizard.removeHealth()
+    expect(wizard.health).toEqual(`Game Over!`)
   })
 })
 

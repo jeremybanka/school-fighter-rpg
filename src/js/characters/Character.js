@@ -12,5 +12,8 @@ export default class Character {
   }
   removeHealth() {
     this.health -= 5
+    if (this.health <= 0) {
+      this.health = `Game Over!`
+    }
   }
 }
