@@ -1,8 +1,10 @@
 import Game from "../src/js/game.js";
+import { Character } from "../src/js/characters";
 
 describe("new Game()", () => {
   it("creates a new game session", () => {
     const expected = {
+      idTicker: -1,
       turnOrder: [],
       characters: {},
       state: "",
@@ -12,17 +14,19 @@ describe("new Game()", () => {
   });
 });
 describe("Game.prototype.addCharacter()", () => {
-  const game = new Game();
-  game.addCharacter("EMOji");
-  const expected = {
-    0: {
+  it("adds a Character object to the Game object", () => {
+    const game = new Game();
+    const character = new Character();
+    game.addCharacter(character);
+    const expected = {
       health: 1,
-      name: `EMOji`,
+      id: 0,
+      name: `unnamedCharacter`,
       type: null,
       level: 1,
       xp: 0,
       inventory: [],
-    },
-  };
-  expect(game.characters).toEqual(expected);
+    };
+    expect(game.characters[0]).toEqual(expected);
+  });
 });
