@@ -1,4 +1,4 @@
-import Game, { STATE } from "../src/js/game.js";
+import Game, { STATE, diceRoll } from "../src/js/game.js";
 import { Character } from "../src/js/characters";
 
 const { EXPLORE, BATTLE, LOOT, WASTED } = STATE;
@@ -39,3 +39,29 @@ describe("Game.prototype.startBattle()", () => {
     expect(game.state).toEqual(BATTLE);
   });
 });
+
+describe("Game.prototype.exploreRoad", () => {
+  it("produces 1 of 3 outcomes dependent on the number generated", () => {
+    const game = new Game();
+    const outcome = game.exploreRoad();
+    const possibleOutcomes = ["bonus", "encounter", "progress"];
+    const expected = possibleOutcomes.includes(outcome);
+    expect(expected).toEqual(true);
+  });
+});
+describe("diceRoll()", () => {
+  it("produces an int between 1 and the provided int, inclusive", () => {
+    const int = 100;
+    const randomRoll = diceRoll(int);
+    const rollIsValid = randomRoll <= int && randomRoll >= 1;
+    expect(rollIsValid).toEqual(true);
+  });
+});
+
+// const game = new Game();
+// const outcome = game.exploreRoad();
+// const possibleOutcomes = ["bonus", "encounter", "progress"];
+// const expected = possibleOutcomes.includes(outcome);
+// expect(expected).toEqual(true);
+// });
+// });

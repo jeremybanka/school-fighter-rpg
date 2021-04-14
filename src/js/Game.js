@@ -28,3 +28,7 @@ export default class Game {
     this.state = this.otherStates.shift();
   }
 }
+
+export function diceRoll(int) {
+  return Math.ceil(Math.random() * int);
+}
