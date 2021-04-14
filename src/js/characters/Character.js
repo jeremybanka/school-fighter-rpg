@@ -16,4 +16,23 @@ export default class Character {
       this.health = `Game Over!`
     }
   }
+  addXP() {
+    this.xp += 10
+  }
+  levelUpOne() {
+    if (this.xp % 30 === 0) {
+      this.level += 1
+    } else {
+      this.level = this.level
+    }
+  }
 }
+
+
+
+// 10 % 30 will return .333
+// 20 % 30 will return .6666
+// 30 %30  will return 0 //level up
+// 60 % 30 will return 0 //level up
+// 70 % 30 will return 10
+// 70 / 30 will return 2.333344555

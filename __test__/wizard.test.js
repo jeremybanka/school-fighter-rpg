@@ -28,7 +28,23 @@ describe(`Wizard`, () => {
     wizard.removeHealth()
     expect(wizard.health).toEqual(`Game Over!`)
   })
+  test(`it should give 10 xp`, () => {
+    wizard.addXP()
+    expect(wizard.xp).toEqual(10)
+  })
+  test(`wizard will increment level by 1 every factor of 30 xp`, () => {
+    wizard.xp = 30
+    wizard.levelUpOne()
+    expect(wizard.level).toEqual(3)
+  })
+  test(`wizard will not increment level by 1 if not factor of 30 xp`, () => {
+    wizard.xp = 20
+    wizard.levelUpOne()
+    expect(wizard.level).toEqual(2)
+  })
+
 })
+
 
 
 
