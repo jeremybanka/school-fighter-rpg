@@ -1,5 +1,7 @@
-import Game from "../src/js/game.js";
+import Game, { STATE } from "../src/js/game.js";
 import { Character } from "../src/js/characters";
+
+const { EXPLORE, BATTLE, LOOT, WASTED } = STATE;
 
 describe("new Game()", () => {
   it("creates a new game session", () => {
@@ -7,8 +9,8 @@ describe("new Game()", () => {
       idTicker: -1,
       turnOrder: [],
       characters: {},
-      state: "",
-      otherStates: ["explore", "battle", "loot", "wasted"],
+      state: EXPLORE,
+      otherStates: [BATTLE, LOOT, WASTED],
     };
     expect(new Game()).toEqual(expected);
   });
@@ -28,5 +30,12 @@ describe("Game.prototype.addCharacter()", () => {
       inventory: [],
     };
     expect(game.characters[0]).toEqual(expected);
+  });
+});
+describe("Game.prototype.startBattle()", () => {
+  it("sets game state to BATTLE", () => {
+    const game = new Game();
+    game.startBattle();
+    expect(game.state).toEqual(BATTLE);
   });
 });
