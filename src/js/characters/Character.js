@@ -7,4 +7,10 @@ export default class Character {
     this.xp = 0
     this.inventory = []
   }
+  addHealth() {
+    this.health += 5
+  }
+  removeHealth() {
+    this.health -= 5
+  }
 }
