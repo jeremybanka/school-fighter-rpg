@@ -10,7 +10,7 @@ describe(`new Game()`, () => {
     const expected = {
       idTicker: -1,
       turnOrder: [],
-      characters: {},
+      characters: new Map(),
       state: EXPLORE,
       otherStates: [BATTLE, LOOT, WASTED],
     }
@@ -22,16 +22,19 @@ describe(`Game.prototype.addCharacter()`, () => {
     const game = new Game()
     const character = new Character()
     game.addCharacter(character)
-    const expected = {
-      health: 1,
-      id: 0,
-      name: `unnamedCharacter`,
-      type: null,
-      level: 1,
-      xp: 0,
-      inventory: [],
-    }
-    expect(game.characters[0]).toEqual(expected)
+    const expected = [
+      0,
+      {
+        health: 1,
+        id: 0,
+        name: `unnamedCharacter`,
+        type: null,
+        level: 1,
+        xp: 0,
+        inventory: [],
+      },
+    ]
+    expect(game.characters.get(0)).toEqual(expected)
   })
 })
 describe(`Game.prototype.startBattle()`, () => {
@@ -42,8 +45,7 @@ describe(`Game.prototype.startBattle()`, () => {
   })
 })
 
-describe(`Game.prototype.exploreRoad`, () => {
-  // left off here
+describe(`Game.prototype.exploreRoad()`, () => {
   it(`produces 1 of 3 outcomes dependent on the number generated`, () => {
     const game = new Game()
     const outcome = game.exploreRoad()
