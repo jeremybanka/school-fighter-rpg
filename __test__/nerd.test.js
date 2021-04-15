@@ -13,5 +13,8 @@ describe('Nerd', () => {
     nerd.hackEmailOfCharacter(character)
     expect(character.health).toEqual(10)
   });
-
+  test('this should deal damage of 5 when they solve a math problem', () => {
+    nerd.solveMathProblem(character)
+    expect(character.health).toEqual(45)
+  })
 });

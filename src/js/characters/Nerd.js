@@ -12,4 +12,7 @@ export default class Nerd extends Character {
   hackEmailOfCharacter(char) {
     super.dealDamageToCharacter(char, 40)
   }
+  solveMathProblem(char) {
+    super.dealDamageToCharacter(char, 5)
+  }
 }
