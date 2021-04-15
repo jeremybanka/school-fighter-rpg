@@ -1,3 +1,5 @@
+import diceRoll from "./util"
+
 const EXPLORE = `explore`
 const BATTLE = `battle`
 const LOOT = `loot`
@@ -7,6 +9,14 @@ export const STATE = {
   BATTLE,
   LOOT,
   WASTED,
+}
+const BONUS = `bonus`
+const PROGRESS = `progress`
+const ENCOUNTER = `encounter`
+export const EXPLORE_OUTCOMES = {
+  BONUS,
+  PROGRESS,
+  ENCOUNTER,
 }
 
 export default class Game {
@@ -29,8 +39,15 @@ export default class Game {
     this.otherStates.push(this.state)
     this.state = this.otherStates.shift()
   }
-}
 
-export function diceRoll(int) {
-  return Math.ceil(Math.random() * int)
+  exploreRoad() {
+    const diceRollNum = diceRoll(6)
+    if (diceRollNum === 6) {
+      return BONUS
+    } else if (diceRollNum === 1) {
+      this.startBattle()
+      return ENCOUNTER
+    }
+    return PROGRESS
+  }
 }

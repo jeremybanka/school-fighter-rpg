@@ -1,7 +1,9 @@
-import Game, { STATE, diceRoll } from "../src/js/game"
+import Game, { STATE, EXPLORE_OUTCOMES } from "../src/js/game"
+import diceRoll from "../src/js/game/util"
 import { Character } from "../src/js/characters"
 
 const { EXPLORE, BATTLE, LOOT, WASTED } = STATE
+const { BONUS, PROGRESS, ENCOUNTER } = EXPLORE_OUTCOMES
 
 describe(`new Game()`, () => {
   it(`creates a new game session`, () => {
@@ -45,7 +47,7 @@ describe(`Game.prototype.exploreRoad`, () => {
   it(`produces 1 of 3 outcomes dependent on the number generated`, () => {
     const game = new Game()
     const outcome = game.exploreRoad()
-    const possibleOutcomes = [`bonus`, `encounter`, `progress`]
+    const possibleOutcomes = [BONUS, PROGRESS, ENCOUNTER]
     const expected = possibleOutcomes.includes(outcome)
     expect(expected).toEqual(true)
   })
