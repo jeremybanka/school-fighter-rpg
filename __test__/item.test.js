@@ -5,7 +5,7 @@ describe(`Item`, () => {
     const item = new Item(`journal`, [`emo`, `nerd`], 0, 2, 2)
     const expected = {
       name: `journal`,
-      type: [`emo`, `nerd`],
+      types: [`emo`, `nerd`],
       armor: 0,
       damage: 2,
       health: 2,
@@ -17,6 +17,6 @@ describe(`Item.prototype.appraiseQuality()`, () => {
   it(`will return the quaility score of an item`, () => {
     const item = new Item(`journal`, [`emo`, `nerd`], 0, 2, 2)
     const itemQuality = item.appraiseQuality()
-    expect(itemQuality).toEqual(6)
+    expect(itemQuality).toEqual(5)
   })
 })
