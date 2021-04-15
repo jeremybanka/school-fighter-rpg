@@ -1,4 +1,5 @@
 import Game, { STATE, EXPLORE_OUTCOMES } from "../src/js/game"
+import hasSameStuff from "./util"
 import diceRoll from "../src/js/game/util"
 import { Character, Wizard } from "../src/js/characters"
 
@@ -48,8 +49,11 @@ describe(`Game.prototype.startBattle()`, () => {
     game.addCharacter(new Character())
     game.addCharacter(new Wizard())
     game.addCharacter(new Character())
-    const output = game.startBattle()
-    expect(output).toEqual([])
+    game.startBattle()
+    const { turnOrder } = game
+    if (hasSameStuff(turnOrder, idList)) {
+      expect(output).toEqual([])
+    }
   })
 })
 
