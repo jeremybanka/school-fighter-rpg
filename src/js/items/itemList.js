@@ -1,0 +1,51 @@
+export default [
+  {
+    name: `Journal`,
+    type: [`emo`, `nerd`],
+    armor: 0,
+    damage: 2,
+    health: 2,
+  },
+  {
+    name: `Jockstrap`,
+    type: [`jock`],
+    armor: 3,
+    damage: 0,
+    health: 1,
+  },
+  {
+    name: `Calculator`,
+    type: [`nerd`],
+    armor: 1,
+    damage: 2,
+    health: 1,
+  },
+  {
+    name: `Cigarette`,
+    type: [`emo`, `hooligan`],
+    armor: 0,
+    damage: 5,
+    health: -1,
+  },
+  {
+    name: `Homework`,
+    type: [`emo`, `hooligan`, `jock`, `nerd`, `cheerleader`],
+    armor: 2,
+    damage: -1,
+    health: -1,
+  },
+  {
+    name: `Pom-poms`,
+    type: [`cheerleader`],
+    armor: 1,
+    damage: 0,
+    health: 3,
+  },
+  {
+    name: `Hall Pass`,
+    type: [`emo`, `hooligan`, `jock`, `nerd`, `cheerleader`],
+    armor: 5,
+    damage: -1,
+    health: 0,
+  },
+]
