@@ -8,4 +8,8 @@ export default class Nerd extends Character {
     this.type = 'intelect'
     this.inventory = [];
   }
+
+  hackEmailOfCharacter(char) {
+    super.dealDamageToCharacter(char, 40)
+  }
 }
