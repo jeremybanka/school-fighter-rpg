@@ -4,7 +4,7 @@ const EXPLORE = `explore`
 const BATTLE = `battle`
 const LOOT = `loot`
 const WASTED = `wasted`
-export const STATE = {
+const STATE = {
   EXPLORE,
   BATTLE,
   LOOT,
@@ -13,7 +13,7 @@ export const STATE = {
 const BONUS = `bonus`
 const PROGRESS = `progress`
 const ENCOUNTER = `encounter`
-export const EXPLORE_OUTCOMES = {
+const EXPLORE_OUTCOMES = {
   BONUS,
   PROGRESS,
   ENCOUNTER,
@@ -38,7 +38,7 @@ export default class Game {
   startBattle() {
     this.otherStates.push(this.state)
     this.state = this.otherStates.shift()
-    const characterIds = Array.from(this.characters.keys())[(0, 1, 2, 3, 4)]
+    const characterIds = Array.from(this.characters.keys())
     characterIds.sort((idA, idB) => {
       const characterA = this.characters.get(idA)
       const characterB = this.characters.get(idB)
@@ -60,3 +60,5 @@ export default class Game {
     return PROGRESS
   }
 }
+
+export { STATE, EXPLORE_OUTCOMES }
