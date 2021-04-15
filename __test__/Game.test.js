@@ -1,6 +1,6 @@
 import Game, { STATE, EXPLORE_OUTCOMES } from "../src/js/game"
 import diceRoll from "../src/js/game/util"
-import { Character } from "../src/js/characters"
+import { Character, Wizard } from "../src/js/characters"
 
 const { EXPLORE, BATTLE, LOOT, WASTED } = STATE
 const { BONUS, PROGRESS, ENCOUNTER } = EXPLORE_OUTCOMES
@@ -24,20 +24,32 @@ describe(`Game.prototype.addCharacter()`, () => {
     game.addCharacter(character)
     const expected = {
       health: 1,
+      id: 0,
       name: `unnamedCharacter`,
       type: null,
       level: 1,
       xp: 0,
       inventory: [],
     }
+    console.log(game.characters)
     expect(game.characters.get(0)).toEqual(expected)
   })
 })
 describe(`Game.prototype.startBattle()`, () => {
   it(`sets game state to BATTLE`, () => {
     const game = new Game()
+    const character = new Character()
+    game.addCharacter(character)
     game.startBattle()
     expect(game.state).toEqual(BATTLE)
+  })
+  it(`produces an array of character ids in semirandom order`, () => {
+    const game = new Game()
+    game.addCharacter(new Character())
+    game.addCharacter(new Wizard())
+    game.addCharacter(new Character())
+    const output = game.startBattle()
+    expect(output).toEqual([])
   })
 })
 
