@@ -26,9 +26,10 @@ export default class Character {
       this.level = this.level
     }
   }
+  dealDamageToCharacter(character) {
+    character.health -= 5
+  }
 }
-
-
 
 // 10 % 30 will return .333
 // 20 % 30 will return .6666

@@ -43,6 +43,13 @@ describe(`Character`, () => {
     character.levelUpOne()
     expect(character.level).toEqual(1)
   })
+
+  test(`should receive damage from another character when it deals damage`, () => {
+    let newChacter = new Character()
+    newChacter.health = 15
+    character.dealDamageToCharacter(newChacter)
+    expect(newChacter.health).toEqual(10)
+  })
 })
 
 // Ataz
