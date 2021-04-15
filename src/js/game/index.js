@@ -23,7 +23,7 @@ export default class Game {
   constructor() {
     this.idTicker = -1
     this.turnOrder = []
-    this.characters = {}
+    this.characters = new Map()
     this.state = EXPLORE
     this.otherStates = [BATTLE, LOOT, WASTED]
   }
@@ -31,8 +31,7 @@ export default class Game {
   addCharacter(character) {
     this.idTicker += 1
     const id = this.idTicker
-    character.id = id
-    this.characters[id] = character
+    this.characters.set(id, character)
   }
 
   startBattle() {

@@ -18,22 +18,18 @@ describe(`new Game()`, () => {
   })
 })
 describe(`Game.prototype.addCharacter()`, () => {
-  it(`adds a Character object to the Game object`, () => {
+  it(`adds a Character object to the Game characters map`, () => {
     const game = new Game()
     const character = new Character()
     game.addCharacter(character)
-    const expected = [
-      0,
-      {
-        health: 1,
-        id: 0,
-        name: `unnamedCharacter`,
-        type: null,
-        level: 1,
-        xp: 0,
-        inventory: [],
-      },
-    ]
+    const expected = {
+      health: 1,
+      name: `unnamedCharacter`,
+      type: null,
+      level: 1,
+      xp: 0,
+      inventory: [],
+    }
     expect(game.characters.get(0)).toEqual(expected)
   })
 })
