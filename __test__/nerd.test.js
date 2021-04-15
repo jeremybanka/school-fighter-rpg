@@ -17,4 +17,8 @@ describe('Nerd', () => {
     nerd.solveMathProblem(character)
     expect(character.health).toEqual(45)
   })
+  test('this should add a level to the nerd when he passes a math test', () => {
+    nerd.passTest()
+    expect(nerd.level).toEqual(4)
+  })
 });

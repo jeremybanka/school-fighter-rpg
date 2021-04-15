@@ -15,4 +15,8 @@ export default class Nerd extends Character {
   solveMathProblem(char) {
     super.dealDamageToCharacter(char, 5)
   }
+  passTest() {
+    super.addXP(30)
+    super.levelUpOne()
+  }
 }

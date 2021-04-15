@@ -16,8 +16,8 @@ export default class Character {
       this.health = `Game Over!`
     }
   }
-  addXP() {
-    this.xp += 10
+  addXP(num) {
+    this.xp += num
   }
   levelUpOne() {
     if (this.xp % 30 === 0) {
@@ -26,8 +26,8 @@ export default class Character {
       this.level = this.level
     }
   }
-  dealDamageToCharacter(character) {
-    character.health -= 5
+  dealDamageToCharacter(character, damage) {
+    character.health -= damage
   }
 }
 

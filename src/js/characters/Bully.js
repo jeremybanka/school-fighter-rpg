@@ -6,6 +6,6 @@ export default class Bully extends Character {
     this.health = 50
     this.type = 'superstrong'
     this.level = 2
-    this.inventory[]
+    this.inventory = []
   }
 }
