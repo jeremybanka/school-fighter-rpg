@@ -1,5 +1,6 @@
 module.exports = {
-  extends: [`airbnb-base`],
+  extends: [`airbnb-base`, `prettier`],
+  plugins: [`prettier`],
   parserOptions: {
     ecmaVersion: 12,
   },
@@ -9,7 +10,7 @@ module.exports = {
     jest: true,
   },
   rules: {
-    "arrowf-parens": [`error`, `as-needed`],
+    "arrow-parens": [`error`, `as-needed`],
     "comma-dangle": [
       `error`,
       {
@@ -21,7 +22,7 @@ module.exports = {
       },
     ],
     "consistent-return": `off`,
-    curly: [`error`, `multi-line`, `consistent`],
+    "curly": [`error`, `multi-line`, `consistent`],
     "function-paren-newline": `off`,
     "implicit-arrow-linebreak": `off`,
     "jsx-quotes": [`error`, `prefer-single`],
@@ -105,9 +106,10 @@ module.exports = {
         enforceForRenamedProperties: false,
       },
     ],
-    quotes: [`error`, `backtick`],
+    "prettier/prettier": [`error`],
+    "quotes": [`error`, `backtick`],
     "quote-props": [`error`, `consistent`, { unnecessary: false }],
-    semi: [`error`, `never`],
+    "semi": [`error`, `never`],
     "semi-style": [`error`, `first`],
   },
-};
+}
